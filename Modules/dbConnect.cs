@@ -20,7 +20,7 @@ public class dbConnect
     {
         Logger.Info("Begin dbConnect Login flow", "dbConnect.init");
 
-        if (!InitOnce)
+        if (1 == 0)
         {
             yield return GetRoleTable();
 
