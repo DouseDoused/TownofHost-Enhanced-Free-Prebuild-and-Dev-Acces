@@ -20,19 +20,16 @@ public static class OptionsMenuBehaviourStartPatch
     private static ClientOptionItem EnableCustomSoundEffect;
     private static ClientOptionItem EnableCustomDecorations;
     private static ClientOptionItem SwitchVanilla;
-
-#if DEBUG
     private static ClientOptionItem VersionCheat;
     private static ClientOptionItem GodMode;
     private static ClientOptionItem AutoRehost;
-#endif
 
     public static void Postfix(OptionsMenuBehaviour __instance)
     {
         if (__instance.DisableMouseMovement == null) return;
 
         Main.SwitchVanilla.Value = false;
-        if (Main.ResetOptions || !DebugModeManager.AmDebugger)
+        if (Main.ResetOptions)
         {
             Main.ResetOptions = false;
             Main.VersionCheat.Value = false;
@@ -127,8 +124,7 @@ public static class OptionsMenuBehaviourStartPatch
             }
         }
 
-#if DEBUG
-        if (EOSManager.Instance.friendCode.GetDevUser().DeBug)
+        if (1 == 1)
         {
             if ((VersionCheat == null || VersionCheat.ToggleButton == null) && DebugModeManager.AmDebugger)
             {
@@ -143,7 +139,6 @@ public static class OptionsMenuBehaviourStartPatch
                 AutoRehost = ClientOptionItem.Create("AutoRehost", Main.AutoRehost, __instance);
             }
         }
-#endif
     }
 }
 [HarmonyPatch(typeof(OptionsMenuBehaviour), nameof(OptionsMenuBehaviour.Close))]
