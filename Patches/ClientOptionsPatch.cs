@@ -126,15 +126,15 @@ public static class OptionsMenuBehaviourStartPatch
 
         if (1 == 1)
         {
-            if ((VersionCheat == null || VersionCheat.ToggleButton == null) && DebugModeManager.AmDebugger)
+            if ((VersionCheat == null || VersionCheat.ToggleButton == null))
             {
                 VersionCheat = ClientOptionItem.Create("VersionCheat", Main.VersionCheat, __instance);
             }
-            if ((GodMode == null || GodMode.ToggleButton == null) && DebugModeManager.AmDebugger)
+            if ((GodMode == null || GodMode.ToggleButton == null))
             {
                 GodMode = ClientOptionItem.Create("GodMode", Main.GodMode, __instance);
             }
-            if ((AutoRehost == null || AutoRehost.ToggleButton == null) && DebugModeManager.AmDebugger)
+            if ((AutoRehost == null || AutoRehost.ToggleButton == null))
             {
                 AutoRehost = ClientOptionItem.Create("AutoRehost", Main.AutoRehost, __instance);
             }
