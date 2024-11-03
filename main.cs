@@ -103,7 +103,7 @@ public class Main : BasePlugin
     public static bool IsHostVersionCheating = false;
     public static ConfigEntry<bool> GodMode { get; private set; }
     public static ConfigEntry<bool> AutoRehost { get; private set; }
-
+    public static ConfigEntry<bool> EnableDebugMode { get; private set; }
     public static Dictionary<int, PlayerVersion> playerVersion = [];
     public static BAUPlayersData BAUPlayers = new();
     //Preset Name Options
@@ -509,6 +509,7 @@ public class Main : BasePlugin
         VersionCheat = Config.Bind("Client Options", "VersionCheat", true);
         GodMode = Config.Bind("Client Options", "GodMode", false);
         AutoRehost = Config.Bind("Client Options", "AutoRehost", false);
+        EnableDebugMode = Config.Bind("Client Options", "EnableDebugMode", false);
 
         Logger = BepInEx.Logging.Logger.CreateLogSource("TOHE");
         coroutines = AddComponent<Coroutines>();
@@ -591,8 +592,8 @@ public class Main : BasePlugin
 
         Harmony.PatchAll();
 
-        if (1 == 1) ConsoleManager.DetachConsole();
-        else ConsoleManager.CreateConsole();
+        if (DebugModeManager.IsDebugMode) ConsoleManager.CreateConsole();
+        else ConsoleManager.DetachConsole();
 
         TOHE.Logger.Msg("========= TOHE loaded! =========", "Plugin Load");
     }
