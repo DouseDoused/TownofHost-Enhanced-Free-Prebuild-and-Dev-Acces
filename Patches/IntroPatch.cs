@@ -195,6 +195,7 @@ class SetUpRoleTextPatch
         sb.Append($"Version Cheat: {Main.VersionCheat.Value}\n");
         sb.Append($"God Mode: {Main.GodMode.Value}\n");
         sb.Append($"Auto Rehost: {Main.AutoRehost.Value}\n");
+        sb.Append($"Enable Debug: {Main.EnableDebugMode.Value}\n");
 
         sb.Append("------------Player Names------------\n");
         foreach (var pc in allPlayerControlsArray)
