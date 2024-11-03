@@ -23,6 +23,7 @@ public static class OptionsMenuBehaviourStartPatch
     private static ClientOptionItem VersionCheat;
     private static ClientOptionItem GodMode;
     private static ClientOptionItem AutoRehost;
+    private static ClientOptionItem EnableDebugMode;
 
     public static void Postfix(OptionsMenuBehaviour __instance)
     {
@@ -35,6 +36,7 @@ public static class OptionsMenuBehaviourStartPatch
             Main.VersionCheat.Value = false;
             Main.GodMode.Value = false;
             Main.AutoRehost.Value = false;
+            Main.EnableDebugMode.Value = false;
         }
 
         if (UnlockFPS == null || UnlockFPS.ToggleButton == null)
@@ -138,6 +140,10 @@ public static class OptionsMenuBehaviourStartPatch
             {
                 AutoRehost = ClientOptionItem.Create("AutoRehost", Main.AutoRehost, __instance);
             }
+            if ((EnableDebugMode == null || EnableDebugMode.ToggleButton == null))
+            {
+                EnableDebugMode = ClientOptionItem.Create("EnableDebugMode", Main.EnableDebugMode, __instance);
+            }
         }
     }
 }
@@ -148,4 +154,6 @@ public static class OptionsMenuBehaviourClosePatch
     {
         ClientOptionItem.CustomBackground?.gameObject.SetActive(false);
     }
+}
+
 }
