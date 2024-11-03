@@ -506,7 +506,7 @@ public class Main : BasePlugin
         SwitchVanilla = Config.Bind("Client Options", "SwitchVanilla", false);
 
         // Debug
-        VersionCheat = Config.Bind("Client Options", "VersionCheat", false);
+        VersionCheat = Config.Bind("Client Options", "VersionCheat", true);
         GodMode = Config.Bind("Client Options", "GodMode", false);
         AutoRehost = Config.Bind("Client Options", "AutoRehost", false);
 
@@ -591,7 +591,7 @@ public class Main : BasePlugin
 
         Harmony.PatchAll();
 
-        if (!DebugModeManager.AmDebugger) ConsoleManager.DetachConsole();
+        if (1 == 1) ConsoleManager.DetachConsole();
         else ConsoleManager.CreateConsole();
 
         TOHE.Logger.Msg("========= TOHE loaded! =========", "Plugin Load");
